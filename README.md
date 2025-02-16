@@ -39,8 +39,7 @@ This will start training the Transformer model on a toy dataset that is 'input.t
 ├── 📜 README.md          # This file
 ├── 📜 bigram.py           # Basic character generator using bigram model
 ├── 📜 transformer.py      # Transformer implementation
-├── 📜 input.txt         # Dataset preparation
-|__ 📜 output.txt
+|__ 📜 input.txt         # Dataset preparation
 ```
 
 ---
@@ -81,11 +80,9 @@ model.load_state_dict(torch.load("model.pth"))
 ```
 
 ---
-## Output.txt
-- This file contains the output of transformer.py
-- We can say that the text is in english even though it doesn't make sense because we haven't used Croess Attention here
 ## **Note**
 - Even if gpu is enabled, the model will take a lot of time to train so be ready for it
+- Model couldn't be uploaded because of large size
 ## **References**
 - [Andrej Karpathy's Original Code](https://github.com/karpathy/ng-video-lecture)
 - [Attention Is All You Need (Vaswani et al., 2017)](https://arxiv.org/abs/1706.03762)
