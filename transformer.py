@@ -200,7 +200,8 @@ class GPTLanguageModel(nn.Module):
             loss=F.cross_entropy(logits,targets)
         return logits,loss     
 
-
+# For training, comment everything after line 229
+# For eval, comment everything from line 206 to 229 and uncomment after that
 
 #Now everything is same too as bigram.py with minor differences
 model = GPTLanguageModel()
@@ -226,11 +227,18 @@ for iter in range(max_iters):
     optimizer.zero_grad(set_to_none=True)
     loss.backward()
     optimizer.step()
-
-# generate from the model
-context = torch.zeros((1, 1), dtype=torch.long, device=device)
-print(decode(m.generate(context, max_new_tokens=1000)[0].tolist()))
-#open('more.txt', 'w').write(decode(m.generate(context, max_new_tokens=10000)[0].tolist()))
+    
+# # eval (uncomment this part and comment the above training loop to load the pretrained model and generate responses)
+# # load the trained model
+# checkpoint = torch.load('model_checkpoint.pth', map_location=device)
+# # Initialize the model (if you haven't already)
+# model = GPTLanguageModel()
+# # Load the state_dict from the checkpoint into the model
+# model.load_state_dict(checkpoint['state_dict'])
+# # Set the model to evaluation mode
+# model.eval()
+# context = torch.zeros((1, 1), dtype=torch.long, device=device)
+# print(decode(model.generate(context, max_new_tokens=1000)[0].tolist()))
 
 '''
 Residual Connections:
