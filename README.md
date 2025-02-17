@@ -67,17 +67,15 @@ The model consists of the following key components:
 Change `n_embd`, `n_head`, `n_layer`, etc., in `transformer.py` to adjust model size.
 
 ### **2. Train on Custom Data**
-Replace the dataset in `input.txt` with your own text corpus.
+- Replace the dataset in `input.txt` with your own text corpus.
+- For training, comment everything after line 229 and run the transformer.py
+- This will start the training and save the model after every defined intervals
 
 ### **3. Save and Load Model**
-To save the trained model:
-```python
-torch.save(model.state_dict(), "model.pth")
-```
-To load the model:
-```python
-model.load_state_dict(torch.load("model.pth"))
-```
+- For eval, comment everything from line 206 to 229 and uncomment after that
+- This will prevent training loop from running and jump directly to evaluation part
+- Model will be loaded from defined path (update path as per your need)
+- The input text is basically some random tensor generated consisting of zeros which doesn't matter.
 
 ---
 ## **Note**
